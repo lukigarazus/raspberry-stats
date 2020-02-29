@@ -13,7 +13,7 @@ def home():
 @app.route('/temperature')
 def temp():
     cpu = CPUTemperature()
-    return cpu.temperature
+    return str(cpu.temperature)
 
 @app.route('/cpu')
 def cpu():
