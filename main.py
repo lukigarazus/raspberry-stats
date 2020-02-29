@@ -1,5 +1,6 @@
 import psutil
 
+from gpiozero import CPUTemperature
 from flask import Flask
 
 app = Flask(__name__)
@@ -8,6 +9,11 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return 'System Stats!'
+
+@app.route('/temperature')
+def temp():
+    cpu = CPUTemperature()
+    return cpu.temperature
 
 @app.route('/cpu')
 def cpu():
